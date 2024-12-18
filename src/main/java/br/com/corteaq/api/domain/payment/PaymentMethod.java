@@ -3,7 +3,7 @@ package br.com.corteaq.api.domain.payment;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
+
 
 public enum PaymentMethod {
     MONEY("money"),
@@ -12,4 +12,8 @@ public enum PaymentMethod {
     PIX("pix");
 
     final String method;
+
+    PaymentMethod(String method) {
+        this.method = method;
+    }
 }

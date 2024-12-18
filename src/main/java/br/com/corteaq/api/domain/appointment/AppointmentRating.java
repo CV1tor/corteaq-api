@@ -3,7 +3,7 @@ package br.com.corteaq.api.domain.appointment;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
+
 public enum AppointmentRating {
     BAD(1),
     NOT_GOOD(2),
@@ -12,4 +12,8 @@ public enum AppointmentRating {
     PERFECT(5);
 
     final Integer rating;
+
+    AppointmentRating(Integer rating) {
+        this.rating = rating;
+    }
 }

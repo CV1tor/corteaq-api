@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "adress")
+@Table(name = "address")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -31,8 +31,8 @@ public class Address implements Serializable {
     @Column(name = "house_number")
     private String houseNumber;
 
-    @Column(name = "zip_code")
-    private String zipCode; // CEP
+
+    private String cep;
 
     @Column(nullable = false)
     private String city;

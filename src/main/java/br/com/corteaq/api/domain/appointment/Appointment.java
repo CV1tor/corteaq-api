@@ -33,6 +33,7 @@ public class Appointment implements Serializable {
     private LocalDateTime dateTime;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private AppointmentStatus status = AppointmentStatus.PENDING;
 
     private AppointmentRating rating;

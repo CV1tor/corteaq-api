@@ -1,10 +1,12 @@
 package br.com.corteaq.api.domain.barber;
 
+import br.com.corteaq.api.domain.servicing.Servicing;
 import br.com.corteaq.api.domain.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -24,4 +26,12 @@ public class Barber implements Serializable {
     private User user;
 
     private String description;
+
+    @ManyToMany
+    @JoinTable(
+            name = "barber_servicing",
+            joinColumns = @JoinColumn(name = "barber_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "servicing_id", referencedColumnName = "id")
+    )
+    private Set<Servicing> servicings;
 }

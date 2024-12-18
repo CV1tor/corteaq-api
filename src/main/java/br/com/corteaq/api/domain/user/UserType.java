@@ -2,7 +2,7 @@ package br.com.corteaq.api.domain.user;
 
 import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
+
 
 public enum UserType {
     ADMIN("admin"),
@@ -10,4 +10,10 @@ public enum UserType {
     BARBER("barber");
 
     final String type;
+
+    UserType(String type) {
+        this.type = type;
+    }
+
+
 }

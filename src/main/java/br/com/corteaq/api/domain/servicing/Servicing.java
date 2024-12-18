@@ -1,10 +1,12 @@
 package br.com.corteaq.api.domain.servicing;
 
+import br.com.corteaq.api.domain.barber.Barber;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity

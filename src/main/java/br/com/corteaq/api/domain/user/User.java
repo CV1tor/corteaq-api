@@ -43,9 +43,6 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private UserType userType;
 
-    @OneToMany
-    private List<Address> adresses;
-
     public User(String username, String password, String firstName, String lastName, String telephoneNumber, UserType userType) {
         this.username = username;
         this.password = password;
