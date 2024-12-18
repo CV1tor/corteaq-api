@@ -1,0 +1,40 @@
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres-container
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: corteaq
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin-container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: seu_email@dominio.com # Email de login do pgAdmin
+      PGADMIN_DEFAULT_PASSWORD: sua_senha # Senha de login do pgAdmin
+    ports:
+      - "8081:80"  # Acesso ao pgAdmin via localhost
+    depends_on:
+      - postgres
+
+  api:
+    build: .
+    container_name: corteaq-api
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/corteaq
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+volumes:
+  postgres-data:
