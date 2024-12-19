@@ -17,24 +17,12 @@ services:
     image: dpage/pgadmin4
     container_name: pgadmin-container
     environment:
-      PGADMIN_DEFAULT_EMAIL: seu_email@dominio.com # Email de login do pgAdmin
-      PGADMIN_DEFAULT_PASSWORD: sua_senha # Senha de login do pgAdmin
+      PGADMIN_DEFAULT_EMAIL: admin@mail.com # Email de login do pgAdmin
+      PGADMIN_DEFAULT_PASSWORD: admin # Senha de login do pgAdmin
     ports:
       - "8081:80"  # Acesso ao pgAdmin via localhost
     depends_on:
       - postgres
-
-  api:
-    build: .
-    container_name: corteaq-api
-    depends_on:
-      - postgres
-    ports:
-      - "8080:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/corteaq
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
 
 volumes:
   postgres-data:
