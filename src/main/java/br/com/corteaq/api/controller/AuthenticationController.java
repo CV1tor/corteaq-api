@@ -7,6 +7,7 @@ import br.com.corteaq.api.dto.TokenDTO;
 import br.com.corteaq.api.service.AuthenticationService;
 import br.com.corteaq.api.service.TokenService;
 import br.com.corteaq.api.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -38,7 +39,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/registro")
-    ResponseEntity<Void> register(@RequestBody RegisterDTO registerDTO) throws Exception {
+    ResponseEntity<Void> register(@RequestBody @Valid RegisterDTO registerDTO) throws Exception {
         userService.registerUser(registerDTO);
 
         return ResponseEntity.ok().build();
