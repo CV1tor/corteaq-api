@@ -34,4 +34,8 @@ public class Barber implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "servicing_id", referencedColumnName = "id")
     )
     private Set<Servicing> servicings;
+
+    public Barber (User user) {
+        this.user = user;
+    }
 }

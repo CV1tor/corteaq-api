@@ -23,4 +23,8 @@ public class Customer implements Serializable {
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
+
+    public Customer (User user) {
+        this.user = user;
+    }
 }
